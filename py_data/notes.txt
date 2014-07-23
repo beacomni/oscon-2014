@@ -1,0 +1,23 @@
+ - checkout ipython notebook
+
+pandas
+ - boolean indexing is like the where clause	
+  - negation with '~'
+  - merge is like join in pandas.  pandas join is not like sql join 
+
+ - pandas might be able to handle something like 2 million rows
+ - the reonomy app that Sarah works on gets data out of postgres first, so
+   it's probably been filtered somewhat
+
+scikit-learn
+ -default of train_test_split is 75% - 25% split
+ -scikit learn has to have  discrete / categorical data encode as continuous
+
+matplot-lib
+ -%pylab inline ensures inline output
+ - will need to use show from command line
+
+ - @sarah_guido on twitter
+
+ -for alternatives maybe check out plotly and boquet
+ - BUT D3.js

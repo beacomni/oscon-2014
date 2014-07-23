@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style>
+    svg {
+		border: 1px solid red;
+		width: 600px;
+		height: 400px;
+	}
+	</style>
+	</head>
+  <body>
+  <h1>agricultural productivity by state</h1>
+  <h3>data from...</h3>
+  <h2>selected state =
+	  <b id='statename'>name</b>
+	  <b id='agvalue'>value</b>
+  </h2>
+    <script type="text/javascript">
+    var w = 600;
+    var h = 400;
+    
+    //setup our display area
+    var svg = d3.select('body')
+      .append('svg')
+      .attr('w',w + 'px')
+      .attr('h',h + 'px');
+    
+	  //make a projection
+	  var projection = d3.geo.albersUsa()
+	    .translate([w/2,h/2])
+	    .scale(750); //1100 is the default scale
+
+    //make a path object to convert from geo4json to svg
+	  var path = d3.geo.path().projection(projection);
+
+	  //load data
+	  d3.json('us-states.json', function(json){
+	          d3.csv('us-ag-productivity-2004.csv', function(data){
+	            	matchByState(json,data);
+
+                    var colors = [];
+                     	//some output colors
+                     	for(var i=1; i<=10; i++){
+                     		var v = Math.round(i*255.0/10);
+                     		//colors.push('rgb('+v+',255,'+v+')');
+                     		colors.push('rgb(0,'+v+',0');
+					}
+					console.log("colors = ",colors);
+
+					var color = d3.scale.quantize().range(colors);
+
+					//function to get productivity value
+					function getValue(d){
+					  return parseFloat(d.value);
+					}
+
+					//set up domain / input of our color scale
+					color.domain([
+						d3.min(data, getValue),
+						d3.max(data, getValue)
+						]);
+
+                   function calcColor(d){
+                   		 var value = d.properties.value;
+                   		 if(value) return color(value); //get color from the color scale
+                   		 return '#ccc'; //gray if there is no value
+               	 }
+                 //when json file is loaded
+                 			  // set up all paths for each state
+                 			  svg.selectAll('path')
+                 			  .data(json.features)
+                 			  .enter()
+                 			  .append("path")
+                 			  .attr('d',path)
+                 			  .attr('fill',calcColor); //bind converter
+
+							  svg.selectAll('path')
+								  .on('mouseover',function() {
+									  d3.select(this)
+										  .transition().duration(250)
+										  .attr('fill','orange');
+								  })
+							      .on('mouseout',function(){
+							        	  d3.select(this)
+							        	  .transition().duration(250)
+							        	  .attr('fill',calcColor);
+							      })
+								  .on('click',function(d) {
+										  d3.select("#statename").text(d.properties.name);
+										  d3.select("#agvalue").text(d.properties.value);
+										  });
+	          });
+	  });
+
+     
+     //smoosh function
+     function matchByState(json,data){
+	     //smoosh with geo json data
+	     for(var i=0; i < data.length; i++){
+	    	 var dataState = data[i].state;
+	    	 for(var j=0;j < json.features.length; j++){
+	    		 var jsonState = json.features[j].properties.value = parseFloat(data[i].value);
+	    		 if(dataState == jsonState){
+	    			 json.features[j].properties.value = parseFloat(data[i].value);
+	    		     break;
+	    		 }
+	    	 }
+	     }
+	 }
+
+
+    </script>
+  </body>
+</html>

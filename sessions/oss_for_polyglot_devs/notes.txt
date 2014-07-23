@@ -1,0 +1,12 @@
+Langdon White Platform Architect RedHat
+ - IDEs and text editors dilemma see blog.osteele.com
+  - ides help you know stuff
+  - text editors help you learn stuff
+  - ides lag on new language features
+  - text editors dont help
+
+ - redhat developer assistant
+ - software collections -- allow environment switching on the system level 
+   like a general purpose virtualenv or rvm
+ 
+ - why not containers? give a deployment environment, but doesn't do the setup

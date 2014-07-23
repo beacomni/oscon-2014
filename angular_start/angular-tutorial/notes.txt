@@ -1,0 +1,11 @@
+Sam Helman, MongoDb
+ - todomvc: a site comparing framworks
+ - to avoid collisions with default templating characters (eg '{' when using mustache.js or go lang), you can customize angular's templating character in the config (shim / bootstrapper?)
+
+
+ - you can use filters within code as well as within directives
+ - through much of the tutorial, we declared everything in the global scope
+ - remember to inject $http $filter if you use them in the js
+ - use alternate syntax when minifying
+ - write your own services (they are singletons)
+ - angular-js learning github repo

@@ -1,0 +1,8 @@
+ - look for geojson and geojson converters
+ - tutorial site Datshing D3.js 
+ - quantize put data into buckets
+ - interactive data visualization for the web book
+ - see the old josh on design book for more canvas material from previous years
+ - don't use setInterval for animation. it can't use info inherent in browser
+   - use requestAnimationFrame instead
+ - web audio api -- more control over sound (vs audio elt)

@@ -1,0 +1,16 @@
+ - project k -- a small, portable .net and asp.net that can, for example be deployed from a mac
+  - allows side by side installs of multiple versions, like virtualenv?
+  - project.json to specify nuget dependencies, rather than traditional .csproj (i think)
+
+ - visual studio daily builds -- support for projects in python and other languages
+  - ability to launch multiple browsers at once, use web sockets to communicate in-place changes from
+  google chrome debugging tools to your razor templates / html
+  - only the jitter of .net remains closed (compiler and runtime open)
+  - azure allows hosting in many more languages and platforms than .net
+  - azure for globally-depeloyed nodes with monitoring
+  
+----
+  lunch with doris chen
+  - TypeScript wants to remain even more open and community driven than the ECMA standard
+  - there's really a preference to continue to use modern tools like javascript and node
+    for front end and UI development rather than XAML or that junk

@@ -1,0 +1,5 @@
+ - try with and without reference types
+ - how to log performance
+ - read in a file
+ - how to think about slice vs array referencing / copies
+   and in-place manipulations

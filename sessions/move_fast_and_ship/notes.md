@@ -1,0 +1,26 @@
+### Andrei Alexandrescu: Move Fast And Ship Things
+ - slides may appear at http://www.slideshare.net/andreialexandrescu1
+ - Facebook open source
+ - desktop 1280m maus 802m daus
+    - mobile 1010m mau 609m dau=
+ - languages used: haskell hack ocaml d
+ - phabricator for reviews
+    - as opposed to github, the pull requestor does the merge after approval
+ - developer machines: 32 way parallelism 3tb flash? 144gb ram 
+ - every 2 weeks there's a fork, frozen for the following 2 weeks
+    - hhvm jit compiler for php.  replaced weekly with a newer version
+ - RC run for a week internally
+    - updates is pushed incrementally (maybe to 1-5% of servers)
+    - break / failure detection detected by metrics monitoring
+        - cpu instruction count, network throughput etc.
+ - new frontend is shipped every day twice
+ - near 0 probability of an end-user hitting same server on successive requests
+ - employee dogfooding
+  - reviews integrated on employee's facebook etc
+ - jenkins: thousands of compiler tests, 10s of thousads of php / fb.com tests
+   -email alerts
+ - time to interaction/page loading speed is a good proxy for willingness to stay  
+-----
+ - workflow at plateaus: never more than 2 days on a single item, or it's considered
+  negative results
+ - theres an actual function that maps monitor size to productivity
